@@ -110,10 +110,7 @@
       }
 
       try {
-        // POST request bhejo API ko
-        // method: 'POST' — naya data banana hai
-        // headers — batao ke JSON bhej rahe hain
-        // body — actual data JSON mein
+       
         const response = await fetch(API_URL, {
           method: 'POST',
           headers: {
@@ -145,15 +142,13 @@
       }
     }
 
-    // ========================================
-    // DELETE — User mitao
-    // ========================================
+   
     async function deleteUser(id, name) {
       // Confirm karo pehle
       if (!confirm(`"${name}" ko delete karna chahte ho?`)) return;
 
       try {
-        // DELETE request bhejo
+       
         const response = await fetch(`${API_URL}/${id}`, {
           method: 'DELETE'
         });
@@ -161,7 +156,7 @@
         const result = await response.json();
 
         if (response.ok) {
-          // List refresh karo
+        
           loadUsers();
         } else {
           alert('Delete nahi hua: ' + result.message);
@@ -172,9 +167,7 @@
       }
     }
 
-    // ========================================
-    // Helper — Message dikhao
-    // ========================================
+  
     function showMessage(text, type) {
       const msg = document.getElementById('formMessage');
       msg.textContent = text;
@@ -185,7 +178,5 @@
       }, 3000);
     }
 
-    // ========================================
-    // Page load hone par users fetch karo
-    // ========================================
+   
     loadUsers();
